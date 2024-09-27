@@ -1,5 +1,6 @@
 package com.example.shift.service;
 
+//import java.math.BigDecimal;
 import java.util.List;
 
 import com.example.shift.entity.Shifts;
@@ -14,6 +15,8 @@ public interface ShiftsService {
 
 	void updateShift(Shifts shift);
 
-	void deleteShift(Integer id);
+	Shifts deleteShift(Integer id);
+	
+//	void setHourlyWage(BigDecimal hourlyWage);
 
 }

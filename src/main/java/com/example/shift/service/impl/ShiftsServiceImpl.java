@@ -1,6 +1,6 @@
 package com.example.shift.service.impl;
 
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -21,34 +21,51 @@ public class ShiftsServiceImpl implements ShiftsService{
 	private final ShiftsMapper shiftsMapper;
 
 	@Override
+	//シフトを新規に挿入する
 	public void saveShift(Shifts shift) {
-		BigDecimal totalHours = shift.getEndTime() - shift.getStartTime();
 		
+		//計算結果をフィールドにセット
+//		shift.calculateTotalHours();
+//		
 		shiftsMapper.insertShift(shift);
 		
 	}
+	
+
 
 	@Override
+	// シフトをIDで取得する
 	public Shifts getShiftById(Integer id) {
 		return shiftsMapper.getShiftById(id);
 		
 	}
 
 	@Override
+	// 全てのシフトを取得する
 	public List<Shifts> getAllShifts() {
-		return null;
+		
+		return shiftsMapper.getAllShifts();
 	}
 
 	@Override
+	// シフトをIDで更新する
 	public void updateShift(Shifts shift) {
-		// TODO 自動生成されたメソッド・スタブ
+		shiftsMapper.updateShift(shift);
 		
 	}
 
 	@Override
-	public void deleteShift(Integer id) {
-		// TODO 自動生成されたメソッド・スタブ
+	// シフトをIDで削除する
+	public Shifts deleteShift(Integer id) {
+		return shiftsMapper.deleteShift(id);
 		
 	}
+
+//	@Override
+//	// 時給の更新メソッド
+//	public void setHourlyWage(BigDecimal hourlyWage) {
+//		shiftsMapper.setShiftHourlyWage(hourlyWage);
+//		
+//	}
 
 }

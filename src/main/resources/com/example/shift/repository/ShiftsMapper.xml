@@ -4,8 +4,8 @@
 
 <!-- シフトを新規に挿入する -->
     <insert id="insertShift" parameterType="com.example.shift.entity.Shifts">
-        INSERT INTO shifts (shift_date, start_time, end_time, total_hours, hourly_wage)
-        VALUES (#{shiftDate}, #{startTime}, #{endTime}, #{totalHours}, #{hourlyWage})
+        INSERT INTO shifts (shift_date, start_time, end_time)
+        VALUES (#{shiftDate}, #{startTime}, #{endTime})
     </insert>
 
     <!-- シフトをIDで取得する -->
@@ -15,7 +15,7 @@
 
     <!-- 全てのシフトを取得する -->
     <select id="getAllShifts" resultType="com.example.shift.entity.Shifts">
-        SELECT * FROM shifts
+        SELECT id, shift_date as shiftDate, start_time as startTime, end_time as endTime from shifts
     </select>
 
     <!-- シフトをIDで更新する -->
@@ -23,9 +23,8 @@
         UPDATE shifts
         SET shift_date = #{shiftDate},
             start_time = #{startTime},
-            end_time = #{endTime},
-            total_hours = #{totalHours},
-            hourly_wage = #{hourlyWage}
+            end_time = #{endTime}
+            
         WHERE id = #{id}
     </update>
 
@@ -34,12 +33,12 @@
         DELETE FROM shifts WHERE id = #{id}
     </delete>
 
-    <!-- 時給を更新する -->
-    <update id="updateShiftHourlyWage" parameterType="com.example.shift.entity.Shifts">
-        UPDATE shifts
-        SET hourly_wage = #{hourlyWage}
-        WHERE id = #{id}
-    </update>
+<!--     時給を更新する -->
+<!--    <update id="updateShiftHourlyWage" parameterType="com.example.shift.entity.Shifts">-->
+<!--        UPDATE shifts-->
+<!--        SET hourly_wage = #{hourlyWage}-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
 
 
 </mapper>

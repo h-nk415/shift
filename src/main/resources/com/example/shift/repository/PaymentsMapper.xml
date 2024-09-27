@@ -1,44 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.shift.repository.PaymentsMapper">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.example.shift.repository.PaymentsMapper">-->
 
 <!-- INSERT -->
-    <insert id="insertPayment" parameterType="com.example.shift.entity.Payments">
-        INSERT INTO payments (user_id, month, total_hours, total_salary)
-        VALUES (#{userId}, #{month}, #{totalHours}, #{totalSalary})
-    </insert>
+<!--    <insert id="insertPayment" parameterType="com.example.shift.entity.Payments">-->
+<!--        INSERT INTO payments (user_id, month, total_hours, total_salary)-->
+<!--        VALUES (#{userId}, #{month}, #{totalHours}, #{totalSalary})-->
+<!--    </insert>-->
 
-    <!-- SELECT by ID -->
-    <select id="getPaymentById" parameterType="Integer" resultType="com.example.shift.entity.Payments">
-        SELECT * FROM payments
-        WHERE id = #{id}
-    </select>
+<!--     指定された月のレコード -->
+<!--    <select id="getPaymentByMonth" parameterType="String" resultType="com.example.shift.entity.Payments">-->
+<!--        SELECT * FROM payments-->
+<!--        WHERE month = #{month}-->
+<!--    </select>-->
 
-    <!-- SELECT All -->
-    <select id="getAllPayments" resultType="com.example.shift.entity.Payments">
-        SELECT * FROM payments
-    </select>
-
-    <!-- UPDATE -->
-    <update id="updatePayment" parameterType="com.example.shift.entity.Payments">
-        UPDATE payments
-        SET user_id = #{userId},
-            month = #{month},
-            total_hours = #{totalHours},
-            total_salary = #{totalSalary}
-        WHERE id = #{id}
-    </update>
-
-    <!-- DELETE -->
-    <delete id="deletePayment" parameterType="Integer">
-        DELETE FROM payments
-        WHERE id = #{id}
-    </delete>
-
-    <!-- 月ごとの合計勤務時間と給与の集計 -->
-    <select id="getMonthlyPayments" resultType="com.example.shift.entity.Payments">
-        SELECT user_id, month, SUM(total_hours) AS total_hours, SUM(total_salary) AS total_salary
-        FROM payments
-        GROUP BY user_id, month
-    </select>
-</mapper>
+<!--     月ごとの合計勤務時間と給与の集計 -->
+<!--    <select id="getMonthlyPayments" resultType="com.example.shift.entity.Payments">-->
+<!--        SELECT user, month, SUM(total_hours) AS total_hours, SUM(total_salary) AS total_salary-->
+<!--        FROM payments-->
+<!--        GROUP BY user, month-->
+<!--    </select>-->
+<!--</mapper>-->
