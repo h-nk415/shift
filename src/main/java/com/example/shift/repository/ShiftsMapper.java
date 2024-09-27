@@ -13,7 +13,7 @@ public interface ShiftsMapper {
     Shifts getShiftById(Integer id); // シフトをIDで取得する
     List<Shifts> getAllShifts(); // 全てのシフトを取得する
     void updateShift(Shifts shift); // シフトをIDで更新する
-    Shifts deleteShift(Integer id); // シフトをIDで削除する
+    void deleteShift(Integer id); // シフトをIDで削除する
 //    void setShiftHourlyWage(BigDecimal hourlyWage); 
 
 }

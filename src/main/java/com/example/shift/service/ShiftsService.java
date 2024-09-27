@@ -7,15 +7,15 @@ import com.example.shift.entity.Shifts;
 
 public interface ShiftsService {
 
-	void saveShift(Shifts shift);
+	void saveShift(Shifts shift);//シフトを新規に挿入する
 
-	Shifts getShiftById(Integer id);
+	Shifts getShiftById(Integer id);// シフトをIDで取得する
 
-	List<Shifts> getAllShifts();
+	List<Shifts> getAllShifts();// 全てのシフトを取得する
 
-	void updateShift(Shifts shift);
+	void updateShift(Shifts shift);// シフトをIDで更新する
 
-	Shifts deleteShift(Integer id);
+	void deleteShift(Integer id);// シフトをIDで削除する
 	
 //	void setHourlyWage(BigDecimal hourlyWage);
 
