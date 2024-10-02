@@ -14,6 +14,6 @@ public interface ShiftsMapper {
     List<Shifts> getAllShifts(); // 全てのシフトを取得する
     void updateShift(Shifts shift); // シフトをIDで更新する
     void deleteShift(Integer id); // シフトをIDで削除する
-//    void setShiftHourlyWage(BigDecimal hourlyWage); 
+
 
 }

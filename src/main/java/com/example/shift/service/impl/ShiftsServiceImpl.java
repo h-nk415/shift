@@ -24,11 +24,6 @@ public class ShiftsServiceImpl implements ShiftsService{
 	//シフトを新規に挿入する
 	public void saveShift(Shifts shift) {
 
-		//計算結果をフィールドにセット
-		//		shift.calculateTotalHours();
-		//
-		
-		
 		shiftsMapper.insertShift(shift);
 
 	}
@@ -59,15 +54,9 @@ public class ShiftsServiceImpl implements ShiftsService{
 	public void deleteShift(Integer id) {
 		shiftsMapper.deleteShift(id);
 
-	
-	
-}
 
-	//	@Override
-	//	// 時給の更新メソッド
-	//	public void setHourlyWage(BigDecimal hourlyWage) {
-	//		shiftsMapper.setShiftHourlyWage(hourlyWage);
-	//		
-	//	}
+
+	}
+
 
 }

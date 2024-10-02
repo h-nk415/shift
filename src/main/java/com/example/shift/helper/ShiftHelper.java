@@ -23,14 +23,27 @@ public class ShiftHelper {
 		//formへの変換
 		
 		ShiftForm form = new ShiftForm();
-		form.setId(shift.getId());
-		form.setShiftDate(shift.getShiftDate());
-		form.setStartTime(shift.getStartTime());
-		form.setEndTime(shift.getEndTime());
-		
-		//更新画面設定
-		form.setIsNew(false);
-		return form;
+	    form.setId(shift.getId());
+	    
+	    // 日付を分割
+	    if (shift.getShiftDate() != null) {
+	        form.setYear(shift.getShiftDate().getYear());
+	        form.setMonth(shift.getShiftDate().getMonthValue());
+	        form.setDay(shift.getShiftDate().getDayOfMonth());
+	    }
+	    
+	    // 時間の設定
+	    if (shift.getStartTime() != null) {
+	        form.setStartHour(shift.getStartTime().getHour());
+	        form.setStartMinute(shift.getStartTime().getMinute());
+	    }
+	    if (shift.getEndTime() != null) {
+	        form.setEndHour(shift.getEndTime().getHour());
+	        form.setEndMinute(shift.getEndTime().getMinute());
+	    }
+	    
+	    form.setIsNew(false);
+	    return form;
 	}
 
 }

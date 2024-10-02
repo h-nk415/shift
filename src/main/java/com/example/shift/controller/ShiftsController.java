@@ -33,6 +33,22 @@ public class ShiftsController {
 		model.addAttribute("home", shiftsService.getAllShifts());
 		return "shift/home";
 	}
+	
+	//IDの詳細表示
+	@GetMapping("/{id}")
+	public String detail(@PathVariable Integer id, Model model, RedirectAttributes attributes) {
+		Shifts shift = shiftsService.getShiftById(id);
+		if(shift != null) {
+			model.addAttribute("shift", shift);
+			return "shift/detail";
+		}else {
+			//データがない場合フラッシュメッセージを表示
+			attributes.addFlashAttribute("message", "対象データがありません");
+
+			//PRGパターン
+			return "redirect:/shift/home";
+		}
+	}
 
 	//登録画面の表示
 	@GetMapping("/form")
@@ -64,7 +80,7 @@ public class ShiftsController {
 
 		//エンティティへ変換
 		Shifts shift = ShiftHelper.convertShift(form);
-		
+
 		//登録実行
 		shiftsService.saveShift(shift);
 
@@ -82,6 +98,7 @@ public class ShiftsController {
 
 		//IDに対応するシフトを取得
 		Shifts target = shiftsService.getShiftById(id);
+		
 
 
 		if(target != null) {
@@ -96,7 +113,7 @@ public class ShiftsController {
 			attributes.addFlashAttribute("message", "対象データがありません");
 
 			//PRGパターン
-			return "redirect:/shift/home";
+			return "redirect:/shift/detail";
 		}
 
 	}
@@ -107,6 +124,13 @@ public class ShiftsController {
 
 		//入力チェック
 		if(bindingResult.hasErrors()) {
+			form.setIsNew(false);
+			return "shift/form";
+		}
+
+		// 開始時間と終了時間のチェック
+		if (!form.isStartTimeBeforeEndTime()) {
+			bindingResult.rejectValue("startHour", "error.startTime", "開始時間は終了時間よりも前でなければなりません");
 			form.setIsNew(false);
 			return "shift/form";
 		}
