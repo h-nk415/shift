@@ -16,34 +16,43 @@ import lombok.NoArgsConstructor;
 
 public class ShiftForm {
 
-
-	private Integer id;			 //ID
-
+	/** ID */
+	private Integer id;
+	
+	/** 年 */
 	@NotNull(message = "年が空欄です")
-	private Integer year;        // 年
-
+	private Integer year = 2024;
+	/** 月 */
 	@NotNull(message = "月が空欄です")
-	private Integer month;       // 月
-
+	private Integer month;
+	/** 日 */
 	@NotNull(message = "日が空欄です")
-	private Integer day;         // 日
+	private Integer day;
 
+	
+	/** 開始時間 */
 	@NotNull(message = "時間が空欄です")
-	private Integer startHour;		//開始時間
-
+	private Integer startHour;
+	/** 開始分 */
 	@NotNull(message = "分が空欄です")
-	private Integer startMinute;	//開始分
+	private Integer startMinute;
 
+	
+	/** 終了時間 */
 	@NotNull(message = "時間が空欄です")
-	private Integer endHour;		//終了時間
-
+	private Integer endHour;
+	/** 終了分 */
 	@NotNull(message = "分が空欄です")
-	private Integer endMinute;		//終了分
+	private Integer endMinute;
 
+	/** シフト日 */
 	private LocalDate shiftDate;
-	private LocalTime startTime;   // 開始時間
-	private LocalTime endTime;     // 終了時間
-	private Boolean isNew; //新規判定
+	/** 開始時間 */
+	private LocalTime startTime;
+	/** 終了時間 */
+	private LocalTime endTime; 
+	/** 新規判定 */
+	private Boolean isNew;
 
 	// シフト日を生成
 	public LocalDate getShiftDate() {

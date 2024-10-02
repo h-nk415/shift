@@ -1,8 +1,5 @@
 package com.example.shift.controller;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -65,37 +62,9 @@ public class ShiftsController {
 		}
 
 
-		// 年、月、日を取得
-		int year = form.getYear();
-		int month = form.getMonth();
-		int day = form.getDay();
-
-		// LocalDateオブジェクトを作成
-		LocalDate shiftDate = LocalDate.of(year, month, day);
-
-
-		//開始時間を取得
-		int startHour = form.getStartHour();
-		int startMinute = form.getStartMinute();
-
-		//LocalTimeオブジェクトを作成
-		LocalTime startTime = LocalTime.of(startHour,startMinute);
-
-		//終了時間を取得
-		int endHour = form.getEndHour();
-		int endMinute = form.getEndMinute();
-
-		//LocalTimeオブジェクトを作成
-		LocalTime endTime = LocalTime.of(endHour,endMinute);
-
 		//エンティティへ変換
 		Shifts shift = ShiftHelper.convertShift(form);
-
-		//shiftにセット
-		shift.setShiftDate(shiftDate);
-		shift.setStartTime(startTime);
-		shift.setEndTime(endTime);
-
+		
 		//登録実行
 		shiftsService.saveShift(shift);
 

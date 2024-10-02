@@ -15,63 +15,63 @@
       <tr>
         <th>日付選択</th>
         <td>
-          <select id="year" name="year">
+          <select id="year" name="year" th:field="*{year}">
             <option value="">年を選択</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
+            <option value="2024" th:selected="${shiftForm.year == 2024}">2024</option>
+            <option value="2025" th:selected="${shiftForm.year == 2025}">2025</option>
+            <option value="2026" th:selected="${shiftForm.year == 2026}">2026</option>
           </select>
           <!-- 月の選択 -->
-          <select id="month" name="month">
+          <select id="month" name="month" th:field="*{month}">
             <option value="">月を選択</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
+            <option value="1" th:selected="${shiftForm.month == 1}">01</option>
+            <option value="2" th:selected="${shiftForm.month == 2}">02</option>
+            <option value="3" th:selected="${shiftForm.month == 3}">03</option>
+            <option value="4" th:selected="${shiftForm.month == 4}">04</option>
+            <option value="5" th:selected="${shiftForm.month == 5}">05</option>
+            <option value="6" th:selected="${shiftForm.month == 6}">06</option>
+            <option value="7" th:selected="${shiftForm.month == 7}">07</option>
+            <option value="8" th:selected="${shiftForm.month == 8}">08</option>
+            <option value="9" th:selected="${shiftForm.month == 9}">09</option>
+            <option value="10" th:selected="${shiftForm.month == 10}">10</option>
+            <option value="11" th:selected="${shiftForm.month == 11}">11</option>
+            <option value="12" th:selected="${shiftForm.month == 12}">12</option>
           </select>
           <!-- 日の選択 -->
-          <select id="day" name="day">
+          <select id="day" name="day" th:field="*{day}">
             <option value="">日を選択</option>
             <!-- 1日から31日までを表示 -->
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
+            <option value="1" th:selected="${shiftForm.day == 1}">01</option>
+            <option value="2" th:selected="${shiftForm.day == 2}">02</option>
+            <option value="3" th:selected="${shiftForm.day == 3}">03</option>
+            <option value="4" th:selected="${shiftForm.day == 4}">04</option>
+            <option value="5" th:selected="${shiftForm.day == 5}">05</option>
+            <option value="6" th:selected="${shiftForm.day == 6}">06</option>
+            <option value="7" th:selected="${shiftForm.day == 7}">07</option>
+            <option value="8" th:selected="${shiftForm.day == 8}">08</option>
+            <option value="9" th:selected="${shiftForm.day == 9}">09</option>
+            <option value="10" th:selected="${shiftForm.day == 10}">10</option>
+            <option value="11" th:selected="${shiftForm.day == 11}">11</option>
+            <option value="12" th:selected="${shiftForm.day == 12}">12</option>
+            <option value="13" th:selected="${shiftForm.day == 13}">13</option>
+            <option value="14" th:selected="${shiftForm.day == 14}">14</option>
+            <option value="15" th:selected="${shiftForm.day == 15}">15</option>
+            <option value="16" th:selected="${shiftForm.day == 16}">16</option>
+            <option value="17" th:selected="${shiftForm.day == 17}">17</option>
+            <option value="18" th:selected="${shiftForm.day == 18}">18</option>
+            <option value="19" th:selected="${shiftForm.day == 19}">19</option>
+            <option value="20" th:selected="${shiftForm.day == 20}">20</option>
+            <option value="21" th:selected="${shiftForm.day == 21}">21</option>
+            <option value="22" th:selected="${shiftForm.day == 22}">22</option>
+            <option value="23" th:selected="${shiftForm.day == 23}">23</option>
+            <option value="24" th:selected="${shiftForm.day == 24}">24</option>
+            <option value="25" th:selected="${shiftForm.day == 25}">25</option>
+            <option value="26" th:selected="${shiftForm.day == 26}">26</option>
+            <option value="27" th:selected="${shiftForm.day == 27}">27</option>
+            <option value="28" th:selected="${shiftForm.day == 28}">28</option>
+            <option value="29" th:selected="${shiftForm.day == 29}">29</option>
+            <option value="30" th:selected="${shiftForm.day == 30}">30</option>
+            <option value="31" th:selected="${shiftForm.day == 31}">31</option>
           </select>
           <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}" style="color:red;">
           </span>
@@ -84,99 +84,64 @@
       <tr>
         <th>開始時間</th>
         <td>
-          <select id="startHour" name="startHour">
+          <select id="startHour" name="startHour" th:field="*{startHour}">
             <option value="">時を選択</option>
             <!-- 0時から23時までの選択肢 -->
             <!-- valueには各時刻の数値が入っている -->
-            <option value="0">00</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
+            <option value="0" th:selected="${shiftForm.startHour == 0}">00</option>
+            <option value="1" th:selected="${shiftForm.startHour == 1}">01</option>
+            <option value="2" th:selected="${shiftForm.startHour == 2}">02</option>
+            <option value="3" th:selected="${shiftForm.startHour == 3}">03</option>
+            <option value="4" th:selected="${shiftForm.startHour == 4}">04</option>
+            <option value="5" th:selected="${shiftForm.startHour == 5}">05</option>
+            <option value="6" th:selected="${shiftForm.startHour == 6}">06</option>
+            <option value="7" th:selected="${shiftForm.startHour == 7}">07</option>
+            <option value="8" th:selected="${shiftForm.startHour == 8}">08</option>
+            <option value="9" th:selected="${shiftForm.startHour == 9}">09</option>
+            <option value="10" th:selected="${shiftForm.startHour == 10}">10</option>
+            <option value="11" th:selected="${shiftForm.startHour == 11}">11</option>
+            <option value="12" th:selected="${shiftForm.startHour == 12}">12</option>
+            <option value="13" th:selected="${shiftForm.startHour == 13}">13</option>
+            <option value="14" th:selected="${shiftForm.startHour == 14}">14</option>
+            <option value="15" th:selected="${shiftForm.startHour == 15}">15</option>
+            <option value="16" th:selected="${shiftForm.startHour == 16}">16</option>
+            <option value="17" th:selected="${shiftForm.startHour == 17}">17</option>
+            <option value="18" th:selected="${shiftForm.startHour == 18}">18</option>
+            <option value="19" th:selected="${shiftForm.startHour == 19}">19</option>
+            <option value="20" th:selected="${shiftForm.startHour == 20}">20</option>
+            <option value="21" th:selected="${shiftForm.startHour == 21}">21</option>
+            <option value="22" th:selected="${shiftForm.startHour == 22}">22</option>
+            <option value="23" th:selected="${shiftForm.startHour == 23}">23</option>
           </select>
           <!-- 分の選択 -->
-          <select id="startMinute" name="startMinute">
+          <select id="startMinute" name="startMinute" th:field="*{startMinute}">
             <option value="">分を選択</option>
             <!-- 0分から59分までの選択肢 -->
-            <option value="0">00</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
-            <option value="40">40</option>
-            <option value="41">41</option>
-            <option value="42">42</option>
-            <option value="43">43</option>
-            <option value="44">44</option>
-            <option value="45">45</option>
-            <option value="46">46</option>
-            <option value="47">47</option>
-            <option value="48">48</option>
-            <option value="49">49</option>
-            <option value="50">50</option>
-            <option value="51">51</option>
-            <option value="52">52</option>
-            <option value="53">53</option>
-            <option value="54">54</option>
-            <option value="55">55</option>
-            <option value="56">56</option>
-            <option value="57">57</option>
-            <option value="58">58</option>
-            <option value="59">59</option>
+            <option value="0" th:selected="${shiftForm.startMinute == 0}">00</option>
+            
+            <option value="5" th:selected="${shiftForm.startMinute == 5}">05</option>
+           
+            <option value="10" th:selected="${shiftForm.startMinute == 10}">10</option>
+            
+            <option value="15" th:selected="${shiftForm.startMinute == 15}">15</option>
+            
+            <option value="20" th:selected="${shiftForm.startMinute == 20}">20</option>
+            
+            <option value="25" th:selected="${shiftForm.startMinute == 25}">25</option>
+            
+            <option value="30" th:selected="${shiftForm.startMinute == 30}">30</option>
+           
+            <option value="35" th:selected="${shiftForm.startMinute == 35}">35</option>
+            
+            <option value="40" th:selected="${shiftForm.startMinute == 40}">40</option>
+
+            <option value="45" th:selected="${shiftForm.startMinute == 45}">45</option>
+            
+            <option value="50" th:selected="${shiftForm.startMinute == 50}">50</option>
+            
+            <option value="55" th:selected="${shiftForm.startMinute == 55}">55</option>
+            
+            
           </select>
           <span th:if="${#fields.hasErrors('startHour')}" th:errors="*{startHour}" style="color:red;">
           </span>
@@ -187,99 +152,63 @@
       <tr>
         <th>終了時間</th>
         <td>
-          <select id="endHour" name="endHour">
+          <select id="endHour" name="endHour" th:field="*{endHour}">
             <option value="">時を選択</option>
             <!-- 0時から23時までの選択肢 -->
             <!-- valueには各時刻の数値が入っている -->
-            <option value="0">00</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
+			<option value="0" th:selected="${shiftForm.endHour == 0}">00</option>
+			<option value="1" th:selected="${shiftForm.endHour == 1}">01</option>
+			<option value="2" th:selected="${shiftForm.endHour == 2}">02</option>
+			<option value="3" th:selected="${shiftForm.endHour == 3}">03</option>
+			<option value="4" th:selected="${shiftForm.endHour == 4}">04</option>
+			<option value="5" th:selected="${shiftForm.endHour == 5}">05</option>
+			<option value="6" th:selected="${shiftForm.endHour == 6}">06</option>
+			<option value="7" th:selected="${shiftForm.endHour == 7}">07</option>
+			<option value="8" th:selected="${shiftForm.endHour == 8}">08</option>
+			<option value="9" th:selected="${shiftForm.endHour == 9}">09</option>
+			<option value="10" th:selected="${shiftForm.endHour == 10}">10</option>
+			<option value="11" th:selected="${shiftForm.endHour == 11}">11</option>
+			<option value="12" th:selected="${shiftForm.endHour == 12}">12</option>
+			<option value="13" th:selected="${shiftForm.endHour == 13}">13</option>
+			<option value="14" th:selected="${shiftForm.endHour == 14}">14</option>
+			<option value="15" th:selected="${shiftForm.endHour == 15}">15</option>
+			<option value="16" th:selected="${shiftForm.endHour == 16}">16</option>
+			<option value="17" th:selected="${shiftForm.endHour == 17}">17</option>
+			<option value="18" th:selected="${shiftForm.endHour == 18}">18</option>
+			<option value="19" th:selected="${shiftForm.endHour == 19}">19</option>
+			<option value="20" th:selected="${shiftForm.endHour == 20}">20</option>
+			<option value="21" th:selected="${shiftForm.endHour == 21}">21</option>
+			<option value="22" th:selected="${shiftForm.endHour == 22}">22</option>
+			<option value="23" th:selected="${shiftForm.endHour == 23}">23</option>
           </select>
           <!-- 分の選択 -->
           <select id="endMinute" name="endMinute">
             <option value="">分を選択</option>
             <!-- 0分から59分までの選択肢 -->
-            <option value="0">00</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
-            <option value="40">40</option>
-            <option value="41">41</option>
-            <option value="42">42</option>
-            <option value="43">43</option>
-            <option value="44">44</option>
-            <option value="45">45</option>
-            <option value="46">46</option>
-            <option value="47">47</option>
-            <option value="48">48</option>
-            <option value="49">49</option>
-            <option value="50">50</option>
-            <option value="51">51</option>
-            <option value="52">52</option>
-            <option value="53">53</option>
-            <option value="54">54</option>
-            <option value="55">55</option>
-            <option value="56">56</option>
-            <option value="57">57</option>
-            <option value="58">58</option>
-            <option value="59">59</option>
+			<option value="0" th:selected="${shiftForm.endMinute == 0}">00</option>
+			      
+			<option value="5" th:selected="${shiftForm.endMinute == 5}">05</option>
+			     
+		    <option value="10" th:selected="${shiftForm.endMinute == 10}">10</option>
+			      
+			<option value="15" th:selected="${shiftForm.endMinute == 15}">15</option>
+			      
+		    <option value="20" th:selected="${shiftForm.endMinute == 20}">20</option>
+			      
+			<option value="25" th:selected="${shiftForm.endMinute == 25}">25</option>
+			      
+			<option value="30" th:selected="${shiftForm.endMinute == 30}">30</option>
+			     
+			<option value="35" th:selected="${shiftForm.endMinute == 35}">35</option>
+			      
+			<option value="40" th:selected="${shiftForm.endMinute == 40}">40</option>
+			
+			<option value="45" th:selected="${shiftForm.endMinute == 45}">45</option>
+			      
+			<option value="50" th:selected="${shiftForm.endMinute == 50}">50</option>
+			      
+			<option value="55" th:selected="${shiftForm.endMinute == 55}">55</option>
+			      
           </select>
           <span th:if="${#fields.hasErrors('endHour')}" th:errors="*{endHour}" style="color:red;">
           </span>

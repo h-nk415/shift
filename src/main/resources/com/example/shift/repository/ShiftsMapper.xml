@@ -33,12 +33,7 @@
         DELETE FROM shifts WHERE id = #{id}
     </delete>
 
-<!--     時給を更新する -->
-<!--    <update id="updateShiftHourlyWage" parameterType="com.example.shift.entity.Shifts">-->
-<!--        UPDATE shifts-->
-<!--        SET hourly_wage = #{hourlyWage}-->
-<!--        WHERE id = #{id}-->
-<!--    </update>-->
+
 
 
 </mapper>
