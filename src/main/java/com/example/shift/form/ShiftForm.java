@@ -18,10 +18,10 @@ public class ShiftForm {
 
 	/** ID */
 	private Integer id;
-
+	
 	/** 年 */
 	@NotNull(message = "年が空欄です")
-	private Integer year;
+	private Integer year = 2024;
 	/** 月 */
 	@NotNull(message = "月が空欄です")
 	private Integer month;
@@ -29,7 +29,7 @@ public class ShiftForm {
 	@NotNull(message = "日が空欄です")
 	private Integer day;
 
-
+	
 	/** 開始時間 */
 	@NotNull(message = "時間が空欄です")
 	private Integer startHour;
@@ -37,7 +37,7 @@ public class ShiftForm {
 	@NotNull(message = "分が空欄です")
 	private Integer startMinute;
 
-
+	
 	/** 終了時間 */
 	@NotNull(message = "時間が空欄です")
 	private Integer endHour;
@@ -45,14 +45,14 @@ public class ShiftForm {
 	@NotNull(message = "分が空欄です")
 	private Integer endMinute;
 
-	//** 休憩時間 */
-	private Integer breakHour;
-	//** 休憩分 */
-	private Integer breakMinute;
-
+	/** シフト日 */
+	private LocalDate shiftDate;
+	/** 開始時間 */
+	private LocalTime startTime;
+	/** 終了時間 */
+	private LocalTime endTime; 
 	/** 新規判定 */
 	private Boolean isNew;
-
 
 	// シフト日を生成
 	public LocalDate getShiftDate() {
@@ -67,14 +67,6 @@ public class ShiftForm {
 	//終了時間を生成
 	public LocalTime getEndTime() {
 		return LocalTime.of(endHour, endMinute);
-	}
-
-	public LocalTime getBreakTime() {
-		if (this.breakHour != null) {
-			return LocalTime.of(breakHour, breakMinute);
-		}else {
-			return LocalTime.of(0, 0);
-		}
 	}
 
 	// 開始時間と終了時間のチェック

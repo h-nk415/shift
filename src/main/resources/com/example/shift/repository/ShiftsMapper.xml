@@ -4,20 +4,20 @@
 
 <!-- シフトを新規に挿入する -->
     <insert id="insertShift" parameterType="com.example.shift.entity.Shifts">
-        INSERT INTO shifts (shift_date, start_time, end_time, break_time)
-        VALUES (#{shiftDate}, #{startTime}, #{endTime}, #{breakTime})
+        INSERT INTO shifts (shift_date, start_time, end_time)
+        VALUES (#{shiftDate}, #{startTime}, #{endTime})
     </insert>
 
     <!-- シフトをIDで取得する -->
     <select id="getShiftById" parameterType="java.lang.Integer" resultType="com.example.shift.entity.Shifts">
-        SELECT id, shift_date AS shiftDate, start_time AS startTime, end_time AS endTime, break_time AS breakTime
+        SELECT id, shift_date AS shiftDate, start_time AS startTime, end_time AS endTime
     FROM shifts
     WHERE id = #{id}
     </select>
 
     <!-- 全てのシフトを取得する -->
     <select id="getAllShifts" resultType="com.example.shift.entity.Shifts">
-        SELECT id, shift_date as shiftDate, start_time as startTime, end_time as endTime, break_time AS breakTime from shifts
+        SELECT id, shift_date as shiftDate, start_time as startTime, end_time as endTime from shifts
     </select>
 
     <!-- シフトをIDで更新する -->
@@ -25,8 +25,7 @@
         UPDATE shifts
         SET shift_date = #{shiftDate},
             start_time = #{startTime},
-            end_time = #{endTime},
-            break_time = #{breakTime}
+            end_time = #{endTime}
             
         WHERE id = #{id}
     </update>

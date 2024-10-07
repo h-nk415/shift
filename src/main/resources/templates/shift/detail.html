@@ -6,51 +6,51 @@
   <title>シフト詳細</title>
   <style>
   body {
-    	            font-family: Arial, sans-serif;
-    	            line-height: 1.6;
-    	            color: #333;
-    	            max-width: 600px;
-    	            margin: 0 auto;
-    	            padding: 20px;
-    	            background-color: #f4f4f4;
-    	        }
-    	        h2 {
-    	            color: #2c3e50;
-    	            border-bottom: 2px solid #3498db;
-    	            padding-bottom: 10px;
-    	        }
-    	        table {
-    	            width: 100%;
-    	            border-collapse: collapse;
-    	            margin-bottom: 20px;
-    	        }
-    	        th, td {
-    	            padding: 12px;
-    	            text-align: left;
-    	            border-bottom: 1px solid #ddd;
-    	        }
-    	        th {
-    	            background-color: #3498db;
-    	            color: white;
-    	        }
-    	        a, input[type="submit"] {
-    	            display: inline-block;
-    	            padding: 10px 15px;
-    	            margin: 5px;
-    	            background-color: #3498db;
-    	            color: white;
-    	            text-decoration: none;
-    	            border-radius: 4px;
-    	            border: none;
-    	            cursor: pointer;
-    	            font-size: 14px;
-    	        }
-    	        a:hover, input[type="submit"]:hover {
-    	            background-color: #2980b9;
-    	        }
-    	        .delete-form {
-    	            display: inline;
-    	        }
+  	            font-family: Arial, sans-serif;
+  	            line-height: 1.6;
+  	            color: #333;
+  	            max-width: 600px;
+  	            margin: 0 auto;
+  	            padding: 20px;
+  	            background-color: #f4f4f4;
+  	        }
+  	        h2 {
+  	            color: #2c3e50;
+  	            border-bottom: 2px solid #3498db;
+  	            padding-bottom: 10px;
+  	        }
+  	        table {
+  	            width: 100%;
+  	            border-collapse: collapse;
+  	            margin-bottom: 20px;
+  	        }
+  	        th, td {
+  	            padding: 12px;
+  	            text-align: left;
+  	            border-bottom: 1px solid #ddd;
+  	        }
+  	        th {
+  	            background-color: #3498db;
+  	            color: white;
+  	        }
+  	        a, input[type="submit"] {
+  	            display: inline-block;
+  	            padding: 10px 15px;
+  	            margin: 5px;
+  	            background-color: #3498db;
+  	            color: white;
+  	            text-decoration: none;
+  	            border-radius: 4px;
+  	            border: none;
+  	            cursor: pointer;
+  	            font-size: 14px;
+  	        }
+  	        a:hover, input[type="submit"]:hover {
+  	            background-color: #2980b9;
+  	        }
+  	        .delete-form {
+  	            display: inline;
+  	        }
   </style>
 </head>
 
@@ -65,11 +65,6 @@
     <tr>
       <th>終了時間</th>
       <td th:text="${shift.endTime != null ? shift.endTime : 'データなし'}">
-      </td>
-    </tr>
-    <tr>
-      <th>休憩時間</th>
-      <td th:text="${shift.breakTime != null ? shift.breakTime : 'データなし'}">
       </td>
     </tr>
   </table>

@@ -24,8 +24,7 @@ public class Shifts {
 	private LocalTime startTime;
 	/** 終了時間 */
 	private LocalTime endTime;
-	/** 休憩時間 */
-	private LocalTime breakTime;
+	
     
 
 }

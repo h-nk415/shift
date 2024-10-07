@@ -1,61 +1,22 @@
 package com.example.shift.service;
 
-
+//import java.math.BigDecimal;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.example.shift.entity.Shifts;
-import com.example.shift.repository.ShiftsMapper;
 
-import lombok.RequiredArgsConstructor;
+public interface ShiftsService {
 
-@Service
-@Transactional
-@RequiredArgsConstructor
+	void saveShift(Shifts shift);//シフトを新規に挿入する
 
-public class ShiftsService{
+	Shifts getShiftById(Integer id);// シフトをIDで取得する
 
-	private final ShiftsMapper shiftsMapper;
+	List<Shifts> getAllShifts();// 全てのシフトを取得する
 
+	void updateShift(Shifts shift);// シフトをIDで更新する
+
+	void deleteShift(Integer id);// シフトをIDで削除する
 	
-	//シフトを新規に挿入する
-	public void saveShift(Shifts shift) {
-
-		shiftsMapper.insertShift(shift);
-
-	}
-
-	
-	// シフトをIDで取得する
-	public Shifts getShiftById(Integer id) {
-		return shiftsMapper.getShiftById(id);
-
-	}
-
-	
-	// 全てのシフトを取得する
-	public List<Shifts> getAllShifts() {
-
-		return shiftsMapper.getAllShifts();
-	}
-
-	
-	// シフトをIDで更新する
-	public void updateShift(Shifts shift) {
-		shiftsMapper.updateShift(shift);
-
-	}
-
-	
-	// シフトをIDで削除する
-	public void deleteShift(Integer id) {
-		shiftsMapper.deleteShift(id);
-
-
-
-	}
-
+//	void setHourlyWage(BigDecimal hourlyWage);
 
 }
