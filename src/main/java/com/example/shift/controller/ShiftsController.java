@@ -1,5 +1,7 @@
 package com.example.shift.controller;
 
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,7 +35,7 @@ public class ShiftsController {
 		model.addAttribute("home", shiftsService.getAllShifts());
 		return "shift/home";
 	}
-	
+
 	//IDの詳細表示
 	@GetMapping("/{id}")
 	public String detail(@PathVariable Integer id, Model model, RedirectAttributes attributes) {
@@ -98,7 +100,7 @@ public class ShiftsController {
 
 		//IDに対応するシフトを取得
 		Shifts target = shiftsService.getShiftById(id);
-		
+
 
 
 		if(target != null) {

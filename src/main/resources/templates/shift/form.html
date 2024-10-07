@@ -6,67 +6,67 @@
   <title>シフト登録</title>
   <style>
   body {
-  	            font-family: 'Arial', sans-serif;
-  	            background-color: #f0f4f8;
-  	            color: #333;
-  	            line-height: 1.6;
-  	            padding: 20px;
-  	        }
-  	        .container {
-  	            max-width: 600px;
-  	            margin: 0 auto;
-  	            background-color: #ffffff;
-  	            padding: 30px;
-  	            border-radius: 8px;
-  	            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  	        }
-  	        h2 {
-  	            color: #2c3e50;
-  	            margin-bottom: 20px;
-  	        }
-  	        table {
-  	            width: 100%;
-  	            margin-bottom: 20px;
-  	        }
-  	        th, td {
-  	            padding: 10px;
-  	            text-align: left;
-  	            vertical-align: top;
-  	        }
-  	        th {
-  	            width: 30%;
-  	            font-weight: bold;
-  	        }
-  	        select {
-  	            padding: 5px;
-  	            margin-right: 5px;
-  	        }
-  	        input[type="submit"] {
-  	            background-color: #3498db;
-  	            color: white;
-  	            padding: 10px 20px;
-  	            border: none;
-  	            border-radius: 4px;
-  	            cursor: pointer;
-  	            font-size: 16px;
-  	        }
-  	        input[type="submit"]:hover {
-  	            background-color: #2980b9;
-  	        }
-  	        .error {
-  	            color: red;
-  	            font-size: 0.9em;
-  	            margin-top: 5px;
-  	        }
-  	        a {
-  	            display: inline-block;
-  	            margin-top: 20px;
-  	            color: #3498db;
-  	            text-decoration: none;
-  	        }
-  	        a:hover {
-  	            text-decoration: underline;
-  	        }
+    	            font-family: 'Arial', sans-serif;
+    	            background-color: #f0f4f8;
+    	            color: #333;
+    	            line-height: 1.6;
+    	            padding: 20px;
+    	        }
+    	        .container {
+    	            max-width: 600px;
+    	            margin: 0 auto;
+    	            background-color: #ffffff;
+    	            padding: 30px;
+    	            border-radius: 8px;
+    	            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    	        }
+    	        h2 {
+    	            color: #2c3e50;
+    	            margin-bottom: 20px;
+    	        }
+    	        table {
+    	            width: 100%;
+    	            margin-bottom: 20px;
+    	        }
+    	        th, td {
+    	            padding: 10px;
+    	            text-align: left;
+    	            vertical-align: top;
+    	        }
+    	        th {
+    	            width: 30%;
+    	            font-weight: bold;
+    	        }
+    	        select {
+    	            padding: 5px;
+    	            margin-right: 5px;
+    	        }
+    	        input[type="submit"] {
+    	            background-color: #3498db;
+    	            color: white;
+    	            padding: 10px 20px;
+    	            border: none;
+    	            border-radius: 4px;
+    	            cursor: pointer;
+    	            font-size: 16px;
+    	        }
+    	        input[type="submit"]:hover {
+    	            background-color: #2980b9;
+    	        }
+    	        .error {
+    	            color: red;
+    	            font-size: 0.9em;
+    	            margin-top: 5px;
+    	        }
+    	        a {
+    	            display: inline-block;
+    	            margin-top: 20px;
+    	            color: #3498db;
+    	            text-decoration: none;
+    	        }
+    	        a:hover {
+    	            text-decoration: underline;
+    	        }
   </style>
 </head>
 
@@ -76,6 +76,8 @@
   <form th:action="${shiftForm.isNew} ? @{/shift/save} : @{/shift/update}" th:object="${shiftForm}" method="post">
     <input type="hidden" th:field="*{id}">
     <table>
+		
+		
       <tr>
         <th>日付選択</th>
         <td>
@@ -103,6 +105,8 @@
           </span>
         </td>
       </tr>
+	  
+	  
       <tr>
         <th>開始時間</th>
         <td>
@@ -122,6 +126,8 @@
           </span>
         </td>
       </tr>
+	  
+	  
       <tr>
         <th>終了時間</th>
         <td>
@@ -141,6 +147,29 @@
           </span>
         </td>
       </tr>
+	  
+	  
+      <tr>
+        <th>休憩時間</th>
+        <td>
+          <select th:field="*{endHour}">
+            <option value="">時を選択</option>
+            <option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.breakHour == h}" th:text="${h < 10 ? '0' + h : h}">
+            </option>
+          </select>
+          <select th:field="*{endMinute}">
+            <option value="">分を選択</option>
+            <option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.breakMinute == m}" th:text="${m < 10 ? '0' + m : m}">
+            </option>
+          </select>
+          <span th:if="${#fields.hasErrors('breakHour')}" th:errors="*{endHour}" style="color:red;">
+          </span>
+          <span th:if="${#fields.hasErrors('breakMinute')}" th:errors="*{endMinute}" style="color:red;">
+          </span>
+        </td>
+      </tr>
+	  
+	  
     </table>
     <input th:if="${shiftForm.isNew}" type="submit" value="登録">
     <input th:unless="${shiftForm.isNew}" type="submit" value="更新">
