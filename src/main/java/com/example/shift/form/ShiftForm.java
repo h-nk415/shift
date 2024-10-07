@@ -44,13 +44,13 @@ public class ShiftForm {
 	/** 終了分 */
 	@NotNull(message = "分が空欄です")
 	private Integer endMinute;
+	
+	/** 休憩時間 */
+	private Integer breakHour;
+	/** 休憩分 */
+	private Integer breakMinute;
 
-	/** シフト日 */
-	private LocalDate shiftDate;
-	/** 開始時間 */
-	private LocalTime startTime;
-	/** 終了時間 */
-	private LocalTime endTime; 
+	
 	/** 新規判定 */
 	private Boolean isNew;
 
@@ -68,7 +68,14 @@ public class ShiftForm {
 	public LocalTime getEndTime() {
 		return LocalTime.of(endHour, endMinute);
 	}
-
+	
+	//休憩時間を生成
+	public LocalTime getBreakTime() {
+	    if (breakHour == null || breakMinute == null) {
+	        return LocalTime.of(0, 0); 
+	    }
+	    return LocalTime.of(breakHour, breakMinute);
+	}
 	// 開始時間と終了時間のチェック
 	public boolean isStartTimeBeforeEndTime() {
 		if (startHour == null || startMinute == null || endHour == null || endMinute == null) {

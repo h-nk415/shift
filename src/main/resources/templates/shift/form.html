@@ -141,6 +141,26 @@
           </span>
         </td>
       </tr>
+	  
+	  <tr>
+	          <th>休憩時間</th>
+	          <td>
+	            <select th:field="*{endHour}">
+	              <option value="">時を選択</option>
+	              <option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.breakHour == h}" th:text="${h < 10 ? '0' + h : h}">
+	              </option>
+	            </select>
+	            <select th:field="*{endMinute}">
+	              <option value="">分を選択</option>
+	              <option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.breakMinute == m}" th:text="${m < 10 ? '0' + m : m}">
+	              </option>
+	            </select>
+	            <span th:if="${#fields.hasErrors('breakHour')}" th:errors="*{breakHour}" style="color:red;">
+	            </span>
+	            <span th:if="${#fields.hasErrors('breakMinute')}" th:errors="*{breakMinute}" style="color:red;">
+	            </span>
+	          </td>
+	        </tr>
     </table>
     <input th:if="${shiftForm.isNew}" type="submit" value="登録">
     <input th:unless="${shiftForm.isNew}" type="submit" value="更新">
