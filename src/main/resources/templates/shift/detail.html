@@ -2,87 +2,87 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <title>シフト詳細</title>
-  <style>
-  body {
-  	            font-family: Arial, sans-serif;
-  	            line-height: 1.6;
-  	            color: #333;
-  	            max-width: 600px;
-  	            margin: 0 auto;
-  	            padding: 20px;
-  	            background-color: #f4f4f4;
-  	        }
-  	        h2 {
-  	            color: #2c3e50;
-  	            border-bottom: 2px solid #3498db;
-  	            padding-bottom: 10px;
-  	        }
-  	        table {
-  	            width: 100%;
-  	            border-collapse: collapse;
-  	            margin-bottom: 20px;
-  	        }
-  	        th, td {
-  	            padding: 12px;
-  	            text-align: left;
-  	            border-bottom: 1px solid #ddd;
-  	        }
-  	        th {
-  	            background-color: #3498db;
-  	            color: white;
-  	        }
-  	        a, input[type="submit"] {
-  	            display: inline-block;
-  	            padding: 10px 15px;
-  	            margin: 5px;
-  	            background-color: #3498db;
-  	            color: white;
-  	            text-decoration: none;
-  	            border-radius: 4px;
-  	            border: none;
-  	            cursor: pointer;
-  	            font-size: 14px;
-  	        }
-  	        a:hover, input[type="submit"]:hover {
-  	            background-color: #2980b9;
-  	        }
-  	        .delete-form {
-  	            display: inline;
-  	        }
-  </style>
+	<meta charset="UTF-8">
+	<title>シフト詳細</title>
+	<style>
+	body {
+	  	            font-family: Arial, sans-serif;
+	  	            line-height: 1.6;
+	  	            color: #333;
+	  	            max-width: 600px;
+	  	            margin: 0 auto;
+	  	            padding: 20px;
+	  	            background-color: #f4f4f4;
+	  	        }
+	  	        h2 {
+	  	            color: #2c3e50;
+	  	            border-bottom: 2px solid #3498db;
+	  	            padding-bottom: 10px;
+	  	        }
+	  	        table {
+	  	            width: 100%;
+	  	            border-collapse: collapse;
+	  	            margin-bottom: 20px;
+	  	        }
+	  	        th, td {
+	  	            padding: 12px;
+	  	            text-align: left;
+	  	            border-bottom: 1px solid #ddd;
+	  	        }
+	  	        th {
+	  	            background-color: #3498db;
+	  	            color: white;
+	  	        }
+	  	        a, input[type="submit"] {
+	  	            display: inline-block;
+	  	            padding: 10px 15px;
+	  	            margin: 5px;
+	  	            background-color: #3498db;
+	  	            color: white;
+	  	            text-decoration: none;
+	  	            border-radius: 4px;
+	  	            border: none;
+	  	            cursor: pointer;
+	  	            font-size: 14px;
+	  	        }
+	  	        a:hover, input[type="submit"]:hover {
+	  	            background-color: #2980b9;
+	  	        }
+	  	        .delete-form {
+	  	            display: inline;
+	  	        }
+	</style>
 </head>
 
 <body>
-  <h2>シフト詳細</h2>
-  <table border="1">
-    <tr>
-      <th>開始時間</th>
-      <td th:text="${shift.startTime != null ? shift.startTime : 'データなし'}">
-      </td>
-    </tr>
-    <tr>
-      <th>終了時間</th>
-      <td th:text="${shift.endTime != null ? shift.endTime : 'データなし'}">
-      </td>
-    </tr>
-	<tr>
-	      <th>休憩時間</th>
-	      <td th:text="${shift.breakTime != null ? shift.breakTime : 'データなし'}">
-	      </td>
-	    </tr>
-  </table>
-  <div style="display: flex; align-items: center;">
-    <!-- 編集リンク -->
-    <a th:href="@{/shift/edit/{id}(id=${shift.id})}">編集</a>
-    <!-- 削除フォーム -->
-    <form th:action="@{/shift/delete/{id}(id=${shift.id})}" method="post">
-      <input type="submit" value="削除">
-    </form>
-  </div>
-  <!-- ホームへのリンク -->
-  <a th:href="@{/shift/home}">ホームへ</a>
+	<h2>シフト詳細</h2>
+	<table border="1">
+		<tr>
+			<th>開始時間</th>
+			<td th:text="${shift.startTime != null ? shift.startTime : 'データなし'}">
+			</td>
+		</tr>
+		<tr>
+			<th>終了時間</th>
+			<td th:text="${shift.endTime != null ? shift.endTime : 'データなし'}">
+			</td>
+		</tr>
+		<tr>
+			<th>休憩時間</th>
+			<td th:text="${shift.breakTime != null ? shift.breakTime : 'データなし'}">
+			</td>
+		</tr>
+	</table>
+	<div style="display: flex; align-items: center;">
+		<!-- 編集リンク -->
+		<a th:href="@{/shift/edit/{id}(id=${shift.id})}">編集</a>
+		<!-- 削除フォーム -->
+		<form th:action="@{/shift/delete/{id}(id=${shift.id})}" method="post">
+			<input type="submit" value="削除">
+		</form>
+	</div>
+	<!-- ホームへのリンク -->
+	<a th:href="@{/shift/home}">ホームへ</a>
 </body>
 
 </html>

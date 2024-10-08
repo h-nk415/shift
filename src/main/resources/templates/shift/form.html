@@ -2,170 +2,169 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <title>シフト登録</title>
-  <style>
-  body {
-  	            font-family: 'Arial', sans-serif;
-  	            background-color: #f0f4f8;
-  	            color: #333;
-  	            line-height: 1.6;
-  	            padding: 20px;
-  	        }
-  	        .container {
-  	            max-width: 600px;
-  	            margin: 0 auto;
-  	            background-color: #ffffff;
-  	            padding: 30px;
-  	            border-radius: 8px;
-  	            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  	        }
-  	        h2 {
-  	            color: #2c3e50;
-  	            margin-bottom: 20px;
-  	        }
-  	        table {
-  	            width: 100%;
-  	            margin-bottom: 20px;
-  	        }
-  	        th, td {
-  	            padding: 10px;
-  	            text-align: left;
-  	            vertical-align: top;
-  	        }
-  	        th {
-  	            width: 30%;
-  	            font-weight: bold;
-  	        }
-  	        select {
-  	            padding: 5px;
-  	            margin-right: 5px;
-  	        }
-  	        input[type="submit"] {
-  	            background-color: #3498db;
-  	            color: white;
-  	            padding: 10px 20px;
-  	            border: none;
-  	            border-radius: 4px;
-  	            cursor: pointer;
-  	            font-size: 16px;
-  	        }
-  	        input[type="submit"]:hover {
-  	            background-color: #2980b9;
-  	        }
-  	        .error {
-  	            color: red;
-  	            font-size: 0.9em;
-  	            margin-top: 5px;
-  	        }
-  	        a {
-  	            display: inline-block;
-  	            margin-top: 20px;
-  	            color: #3498db;
-  	            text-decoration: none;
-  	        }
-  	        a:hover {
-  	            text-decoration: underline;
-  	        }
-  </style>
+	<meta charset="UTF-8">
+	<title>シフト登録</title>
+	<style>
+	body {
+	  	            font-family: 'Arial', sans-serif;
+	  	            background-color: #f0f4f8;
+	  	            color: #333;
+	  	            line-height: 1.6;
+	  	            padding: 20px;
+	  	        }
+	  	        .container {
+	  	            max-width: 600px;
+	  	            margin: 0 auto;
+	  	            background-color: #ffffff;
+	  	            padding: 30px;
+	  	            border-radius: 8px;
+	  	            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	  	        }
+	  	        h2 {
+	  	            color: #2c3e50;
+	  	            margin-bottom: 20px;
+	  	        }
+	  	        table {
+	  	            width: 100%;
+	  	            margin-bottom: 20px;
+	  	        }
+	  	        th, td {
+	  	            padding: 10px;
+	  	            text-align: left;
+	  	            vertical-align: top;
+	  	        }
+	  	        th {
+	  	            width: 30%;
+	  	            font-weight: bold;
+	  	        }
+	  	        select {
+	  	            padding: 5px;
+	  	            margin-right: 5px;
+	  	        }
+	  	        input[type="submit"] {
+	  	            background-color: #3498db;
+	  	            color: white;
+	  	            padding: 10px 20px;
+	  	            border: none;
+	  	            border-radius: 4px;
+	  	            cursor: pointer;
+	  	            font-size: 16px;
+	  	        }
+	  	        input[type="submit"]:hover {
+	  	            background-color: #2980b9;
+	  	        }
+	  	        .error {
+	  	            color: red;
+	  	            font-size: 0.9em;
+	  	            margin-top: 5px;
+	  	        }
+	  	        a {
+	  	            display: inline-block;
+	  	            margin-top: 20px;
+	  	            color: #3498db;
+	  	            text-decoration: none;
+	  	        }
+	  	        a:hover {
+	  	            text-decoration: underline;
+	  	        }
+	</style>
 </head>
 
 <body>
-  <h2 th:if="${shiftForm.isNew}">新規登録</h2>
-  <h2 th:unless="${shiftForm.isNew}">編集</h2>
-  <form th:action="${shiftForm.isNew} ? @{/shift/save} : @{/shift/update}" th:object="${shiftForm}" method="post">
-    <input type="hidden" th:field="*{id}">
-    <table>
-      <tr>
-        <th>日付選択</th>
-        <td>
-          <select th:field="*{year}">
-            <option value="">年を選択</option>
-            <option value="2024" th:selected="${shiftForm.year == 2024}">2024</option>
-            <option value="2025" th:selected="${shiftForm.year == 2025}">2025</option>
-            <option value="2026" th:selected="${shiftForm.year == 2026}">2026</option>
-          </select>
-          <select th:field="*{month}">
-            <option value="">月を選択</option>
-            <option th:each="m : ${#numbers.sequence(1, 12)}" th:value="${m}" th:selected="${shiftForm.month == m}" th:text="${m < 10 ? '0' + m : m}">
-            </option>
-          </select>
-          <select th:field="*{day}">
-            <option value="">日を選択</option>
-            <option th:each="d : ${#numbers.sequence(1, 31)}" th:value="${d}" th:selected="${shiftForm.day == d}" th:text="${d < 10 ? '0' + d : d}">
-            </option>
-          </select>
-          <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}" style="color:red;">
-          </span>
-          <span th:if="${#fields.hasErrors('month')}" th:errors="*{month}" style="color:red;">
-          </span>
-          <span th:if="${#fields.hasErrors('day')}" th:errors="*{day}" style="color:red;">
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <th>開始時間</th>
-        <td>
-          <select th:field="*{startHour}">
-            <option value="">時を選択</option>
-            <option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.startHour == h}" th:text="${h < 10 ? '0' + h : h}">
-            </option>
-          </select>
-          <select th:field="*{startMinute}">
-            <option value="">分を選択</option>
-            <option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.startMinute == m}" th:text="${m < 10 ? '0' + m : m}">
-            </option>
-          </select>
-          <span th:if="${#fields.hasErrors('startHour')}" th:errors="*{startHour}" style="color:red;">
-          </span>
-          <span th:if="${#fields.hasErrors('startMinute')}" th:errors="*{startMinute}" style="color:red;">
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <th>終了時間</th>
-        <td>
-          <select th:field="*{endHour}">
-            <option value="">時を選択</option>
-            <option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.endHour == h}" th:text="${h < 10 ? '0' + h : h}">
-            </option>
-          </select>
-          <select th:field="*{endMinute}">
-            <option value="">分を選択</option>
-            <option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.endMinute == m}" th:text="${m < 10 ? '0' + m : m}">
-            </option>
-          </select>
-          <span th:if="${#fields.hasErrors('endHour')}" th:errors="*{endHour}" style="color:red;">
-          </span>
-          <span th:if="${#fields.hasErrors('endMinute')}" th:errors="*{endMinute}" style="color:red;">
-          </span>
-        </td>
-      </tr>
-	  
-	  <tr>
-	          <th>休憩時間</th>
-	          <td>
-	            <select th:field="*{endHour}">
-	              <option value="">時を選択</option>
-	              <option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.breakHour == h}" th:text="${h < 10 ? '0' + h : h}">
-	              </option>
-	            </select>
-	            <select th:field="*{endMinute}">
-	              <option value="">分を選択</option>
-	              <option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.breakMinute == m}" th:text="${m < 10 ? '0' + m : m}">
-	              </option>
-	            </select>
-	            <span th:if="${#fields.hasErrors('breakHour')}" th:errors="*{breakHour}" style="color:red;">
-	            </span>
-	            <span th:if="${#fields.hasErrors('breakMinute')}" th:errors="*{breakMinute}" style="color:red;">
-	            </span>
-	          </td>
-	        </tr>
-    </table>
-    <input th:if="${shiftForm.isNew}" type="submit" value="登録">
-    <input th:unless="${shiftForm.isNew}" type="submit" value="更新">
-  </form>
-  <a th:href="@{/shift/home}">戻る</a>
+	<h2 th:if="${shiftForm.isNew}">新規登録</h2>
+	<h2 th:unless="${shiftForm.isNew}">編集</h2>
+	<form th:action="${shiftForm.isNew} ? @{/shift/save} : @{/shift/update}" th:object="${shiftForm}" method="post">
+		<input type="hidden" th:field="*{id}">
+		<table>
+			<tr>
+				<th>日付選択</th>
+				<td>
+					<select th:field="*{year}">
+						<option value="">年を選択</option>
+						<option value="2024" th:selected="${shiftForm.year == 2024}">2024</option>
+						<option value="2025" th:selected="${shiftForm.year == 2025}">2025</option>
+						<option value="2026" th:selected="${shiftForm.year == 2026}">2026</option>
+					</select>
+					<select th:field="*{month}">
+						<option value="">月を選択</option>
+						<option th:each="m : ${#numbers.sequence(1, 12)}" th:value="${m}" th:selected="${shiftForm.month == m}" th:text="${m < 10 ? '0' + m : m}">
+						</option>
+					</select>
+					<select th:field="*{day}">
+						<option value="">日を選択</option>
+						<option th:each="d : ${#numbers.sequence(1, 31)}" th:value="${d}" th:selected="${shiftForm.day == d}" th:text="${d < 10 ? '0' + d : d}">
+						</option>
+					</select>
+					<span th:if="${#fields.hasErrors('year')}" th:errors="*{year}" style="color:red;">
+					</span>
+					<span th:if="${#fields.hasErrors('month')}" th:errors="*{month}" style="color:red;">
+					</span>
+					<span th:if="${#fields.hasErrors('day')}" th:errors="*{day}" style="color:red;">
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th>開始時間</th>
+				<td>
+					<select th:field="*{startHour}">
+						<option value="">時を選択</option>
+						<option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.startHour == h}" th:text="${h < 10 ? '0' + h : h}">
+						</option>
+					</select>
+					<select th:field="*{startMinute}">
+						<option value="">分を選択</option>
+						<option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.startMinute == m}" th:text="${m < 10 ? '0' + m : m}">
+						</option>
+					</select>
+					<span th:if="${#fields.hasErrors('startHour')}" th:errors="*{startHour}" style="color:red;">
+					</span>
+					<span th:if="${#fields.hasErrors('startMinute')}" th:errors="*{startMinute}" style="color:red;">
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th>終了時間</th>
+				<td>
+					<select th:field="*{endHour}">
+						<option value="">時を選択</option>
+						<option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.endHour == h}" th:text="${h < 10 ? '0' + h : h}">
+						</option>
+					</select>
+					<select th:field="*{endMinute}">
+						<option value="">分を選択</option>
+						<option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.endMinute == m}" th:text="${m < 10 ? '0' + m : m}">
+						</option>
+					</select>
+					<span th:if="${#fields.hasErrors('endHour')}" th:errors="*{endHour}" style="color:red;">
+					</span>
+					<span th:if="${#fields.hasErrors('endMinute')}" th:errors="*{endMinute}" style="color:red;">
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th>休憩時間</th>
+				<td>
+					<select th:field="*{breakHour}">
+						<option value="">時を選択</option>
+						<option th:each="h : ${#numbers.sequence(0, 23)}" th:value="${h}" th:selected="${shiftForm.breakHour == h}" th:text="${h < 10 ? '0' + h : h}">
+						</option>
+					</select>
+					<select th:field="*{breakMinute}">
+						<option value="">分を選択</option>
+						<option th:each="m : ${#numbers.sequence(0, 55, 5)}" th:value="${m}" th:selected="${shiftForm.breakMinute == m}" th:text="${m < 10 ? '0' + m : m}">
+						</option>
+					</select>
+					<span th:if="${#fields.hasErrors('breakHour')}" th:errors="*{breakHour}" style="color:red;">
+					</span>
+					<span th:if="${#fields.hasErrors('breakMinute')}" th:errors="*{breakMinute}" style="color:red;">
+					</span>
+				</td>
+			</tr>
+		</table>
+		<input th:if="${shiftForm.isNew}" type="submit" value="登録">
+		<input th:unless="${shiftForm.isNew}" type="submit" value="更新">
+	</form>
+	<a th:href="@{/shift/home}">戻る</a>
 </body>
 
 </html>

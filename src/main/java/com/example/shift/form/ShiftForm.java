@@ -21,7 +21,7 @@ public class ShiftForm {
 	
 	/** 年 */
 	@NotNull(message = "年が空欄です")
-	private Integer year = 2024;
+	private Integer year;
 	/** 月 */
 	@NotNull(message = "月が空欄です")
 	private Integer month;
