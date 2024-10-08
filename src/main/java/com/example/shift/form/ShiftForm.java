@@ -1,5 +1,6 @@
 package com.example.shift.form;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -49,6 +50,8 @@ public class ShiftForm {
 	private Integer breakHour;
 	/** 休憩分 */
 	private Integer breakMinute;
+	
+	
 
 	
 	/** 新規判定 */
@@ -70,12 +73,29 @@ public class ShiftForm {
 	}
 	
 	//休憩時間を生成
-	public LocalTime getBreakTime() {
+	public long getBreakTime() {
 	    if (breakHour == null || breakMinute == null) {
-	        return LocalTime.of(0, 0); 
+	        return 0L;  // 休憩時間が設定されていない場合、0分とする
 	    }
-	    return LocalTime.of(breakHour, breakMinute);
+	   
+	    return breakHour * 60L + breakMinute;
 	}
+	
+	//実働時間を計算
+	public String getWorkTime() {
+		 Duration breakDuration = Duration.ofMinutes(getBreakTime());;
+		Duration workDuration = Duration.between(getStartTime(), getEndTime()).minus(breakDuration);
+	    
+
+		    // 時間と分を抽出
+		    long hours = workDuration.toHours();
+		    long minutes = workDuration.toMinutes() % 60;
+
+		    // 〇時間〇分という形式で返す
+		    return hours + "時間" + minutes + "分";
+	}
+	
+	
 	// 開始時間と終了時間のチェック
 	public boolean isStartTimeBeforeEndTime() {
 		if (startHour == null || startMinute == null || endHour == null || endMinute == null) {

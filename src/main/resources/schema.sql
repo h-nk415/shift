@@ -9,5 +9,7 @@ CREATE TABLE IF NOT EXISTS shifts (
 	--　終了時間
 	end_time TIME not null,
 	--　休憩時間
-	break_time Time
+	break_time BIGINT,
+	--　実働時間
+	work_time varchar(255)
 	);

@@ -15,6 +15,7 @@ public class ShiftHelper {
 		shifts.setStartTime(form.getStartTime());
 		shifts.setEndTime(form.getEndTime());
 		shifts.setBreakTime(form.getBreakTime());
+		shifts.setWorkTime(form.getWorkTime());
 		return shifts;
 		
 	}
@@ -42,10 +43,7 @@ public class ShiftHelper {
 	        form.setEndHour(shift.getEndTime().getHour());
 	        form.setEndMinute(shift.getEndTime().getMinute());
 	    }
-	    if (shift.getBreakTime() != null) {
-	        form.setBreakHour(shift.getBreakTime().getHour());
-	        form.setBreakMinute(shift.getBreakTime().getMinute());
-	    }
+	    
 	    
 	    form.setIsNew(false);
 	    return form;

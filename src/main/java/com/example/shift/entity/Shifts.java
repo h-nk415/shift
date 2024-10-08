@@ -1,6 +1,8 @@
 package com.example.shift.entity;
 
 
+
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -25,8 +27,9 @@ public class Shifts {
 	/** 終了時間 */
 	private LocalTime endTime;
 	/** 休憩時間 */
-	private LocalTime breakTime;
-	
+	private long breakTime;
+	/** 実働時間 */
+	private String workTime;
     
 
 }

@@ -69,9 +69,14 @@
 		</tr>
 		<tr>
 			<th>休憩時間</th>
-			<td th:text="${shift.breakTime != null ? shift.breakTime : 'データなし'}">
+			<td th:text="${shift.breakTime != null ? shift.breakTime + '分' : 'データなし'}">
 			</td>
 		</tr>
+		<tr>
+					<th>実働時間</th>
+					<td th:text="${shift.workTime != null ? shift.workTime : 'データなし'}">
+					</td>
+				</tr>
 	</table>
 	<div style="display: flex; align-items: center;">
 		<!-- 編集リンク -->
